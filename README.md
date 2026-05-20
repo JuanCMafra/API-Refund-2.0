@@ -121,3 +121,5 @@ Inicie o servidor de desenvolvimento:
 ```console
  npm run dev 
  ```
+
+Acesse o repositório do front-end do projeto em: ` https://github.com/JuanCMafra/Refund-2.0-Front-End `
