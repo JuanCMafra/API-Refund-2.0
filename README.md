@@ -24,7 +24,11 @@ As rotas estão organizadas entre públicas (abertas) e privadas (que exigem o c
 ### Rotas Públicas
 
 #### Usuários & Autenticação
-POST /users - Cadastro de novos usuários (Define se é employee ou manager).POST /sessions - Login da aplicação (Retorna o token JWT e os dados do usuário).### Rotas Privadas💡 Nota: Todas as rotas abaixo exigem o middleware ensureAuthenticated.
+POST /users - Cadastro de novos usuários (Define se é employee ou manager).
+POST /sessions - Login da aplicação (Retorna o token JWT e os dados do usuário).
+
+### Rotas Privadas💡 
+Nota: Todas as rotas abaixo exigem o middleware ensureAuthenticated.
 
 #### Uploads (Restrito para employee)
 POST /uploads - Realiza o upload de um documento/comprovante (campo file). Retorna o nome do arquivo gerado para ser associado ao reembolso.
@@ -57,19 +61,27 @@ Plaintextsrc/
     ├── uploads-routes.ts
     └── users-routes.ts
 
-## 📋 Formato dos Dados (Payloads Esperados)### 1. Cadastro de Usuário (POST /users)JSON{
+## 📋 Formato dos Dados (Payloads Esperados)
+
+### 1. Cadastro de Usuário (POST /users)
+
+JSON{
   "name": "João Silva",
   "email": "joao@email.com",
   "password": "senha_segura_123",
   "role": "employee" 
 }
 
-### 2. Login (POST /sessions)JSON{
+### 2. Login (POST /sessions)
+
+JSON{
   "email": "joao@email.com",
   "password": "senha_segura_123"
 }
 
-### 3. Criação de Reembolso (POST /refunds)JSON{
+### 3. Criação de Reembolso (POST /refunds)
+
+JSON{
   "name": "Almoço com cliente",
   "category": "food",
   "amount": 89.90,
