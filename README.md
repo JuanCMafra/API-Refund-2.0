@@ -19,37 +19,39 @@ Upload de Arquivos: Multer
 
 ## 🛣️ Rotas da Aplicação
 
-As rotas estão organizadas entre públicas (abertas) e privadas (que exigem o cabeçalho Authorization: Bearer <token>).
+As rotas estão divididas em públicas e privadas. As rotas privadas exigem o cabeçalho `Authorization: Bearer <token>`.
 
 ### Rotas Públicas
 
-#### Usuários & Autenticação
-POST /users - Cadastro de novos usuários (Define se é employee ou manager).
-POST /sessions - Login da aplicação (Retorna o token JWT e os dados do usuário).
+#### Usuários e Autenticação
+- `POST /users` - cadastra um novo usuário e define o papel como `employee` ou `manager`.
+- `POST /sessions` - faz login e retorna o token JWT junto com os dados do usuário.
 
-### Rotas Privadas💡 
-Nota: Todas as rotas abaixo exigem o middleware ensureAuthenticated.
+### Rotas Privadas 💡
+Todas as rotas abaixo exigem o middleware `ensureAuthenticated`.
 
-#### Uploads (Restrito para employee)
-POST /uploads - Realiza o upload de um documento/comprovante (campo file). Retorna o nome do arquivo gerado para ser associado ao reembolso.
+#### Uploads (restrito para `employee`)
+- `POST /uploads` - envia o comprovante no campo `file` e retorna o nome do arquivo gerado.
 
 #### Reembolsos (Refunds)
-POST /refunds - Cria uma nova solicitação de reembolso.
-Permissão: Apenas employee.
-GET /refunds - Lista as solicitações de reembolso com paginação e filtro por nome do usuário.
-Permissão: Apenas manager.
-GET /refunds/:id - Exibe os detalhes de um reembolso específico através do ID.
-Permissão: manager e employee.
+- `POST /refunds` - cria uma nova solicitação de reembolso.
+  - Permissão: `employee`
+- `GET /refunds` - lista solicitações de reembolso com paginação e filtro por nome do usuário.
+  - Permissão: `manager`
+- `GET /refunds/:id` - exibe detalhes de um reembolso específico pelo ID.
+  - Permissão: `manager` e `employee`
 
 ## 🛠️ Estrutura do Projeto (Controladores e Rotas)
 O fluxo de requisições do projeto segue a estrutura abaixo:
 
-Plaintextsrc/├── configs/                  # Configurações de autenticação e upload
+```text
+src/
+├── configs/                  # Configurações de autenticação e upload
 ├── controllers/              # Regras de negócio da aplicação
 │   ├── refunds-controller.ts # Criação, listagem e exibição de reembolsos
-│   ├── sessions-controller.ts# Autenticação e geração de JWT
-│   ├── uploads-controller.ts # Gerenciamento do upload de arquivos
-│   └── user-controller.ts    # Cadastro de usuários e hash de senha
+│   ├── sessions-controller.ts # Autenticação e geração de JWT
+│   ├── uploads-controller.ts  # Gerenciamento do upload de arquivos
+│   └── user-controller.ts     # Cadastro de usuários e hash de senha
 ├── middlewares/              # Tratamento de autenticação e autorização
 │   ├── ensure-authenticated.ts
 │   └── verify-user-authorization.ts
@@ -59,6 +61,7 @@ Plaintextsrc/├── configs/                  # Configurações de autentica�
     ├── sessions-routes.ts
     ├── uploads-routes.ts
     └── users-routes.ts
+```
 
 ## 📋 Formato dos Dados (Payloads Esperados)
 
