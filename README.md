@@ -67,43 +67,48 @@ src/
 
 ### 1. Cadastro de Usuário (POST /users)
 
-JSON
+```JSON
 {
   "name": "João Silva",
   "email": "joao@email.com",
   "password": "senha_segura_123",
   "role": "employee" 
 }
+```
 
 ### 2. Login (POST /sessions)
 
-JSON
+```JSON
 {
   "email": "joao@email.com",
   "password": "senha_segura_123"
 }
-
+```
 ### 3. Criação de Reembolso (POST /refunds)
 
-JSON
+```JSON
 {
   "name": "Almoço com cliente",
   "category": "food",
   "amount": 89.90,
   "filename": "nome-do-arquivo-retornado-pelo-upload.png"
 }
-
+```
 Categorias aceitas: food, others, services, transport, accommodation.
 
-## ⚙️ Como Executar o ProjetoClone o repositório:
+## ⚙️ Como Executar o Projeto
 
-Bash
-git clone <https://github.com/JuanCMafra/API-Refund-2.0.git>
+Clone o repositório:
+
+```console
+ git clone https://github.com/JuanCMafra/API-Refund-2.0.git 
+ ```
 
 Instale as dependências:
 
-Bash
-npm install
+```console
+ npm install 
+ ```
 
 Configure as variáveis de ambiente (.env):
 
@@ -113,5 +118,6 @@ Execute as migrações do banco de dados:Bashnpx prisma migrate dev
 
 Inicie o servidor de desenvolvimento:
 
-Bash
-npm run dev
+```console
+ npm run dev 
+ ```
