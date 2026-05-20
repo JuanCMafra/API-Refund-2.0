@@ -44,8 +44,7 @@ Permissão: manager e employee.
 ## 🛠️ Estrutura do Projeto (Controladores e Rotas)
 O fluxo de requisições do projeto segue a estrutura abaixo:
 
-Plaintextsrc/
-├── configs/                  # Configurações de autenticação e upload
+Plaintextsrc/├── configs/                  # Configurações de autenticação e upload
 ├── controllers/              # Regras de negócio da aplicação
 │   ├── refunds-controller.ts # Criação, listagem e exibição de reembolsos
 │   ├── sessions-controller.ts# Autenticação e geração de JWT
@@ -65,7 +64,8 @@ Plaintextsrc/
 
 ### 1. Cadastro de Usuário (POST /users)
 
-JSON{
+JSON
+{
   "name": "João Silva",
   "email": "joao@email.com",
   "password": "senha_segura_123",
@@ -74,14 +74,16 @@ JSON{
 
 ### 2. Login (POST /sessions)
 
-JSON{
+JSON
+{
   "email": "joao@email.com",
   "password": "senha_segura_123"
 }
 
 ### 3. Criação de Reembolso (POST /refunds)
 
-JSON{
+JSON
+{
   "name": "Almoço com cliente",
   "category": "food",
   "amount": 89.90,
@@ -92,13 +94,13 @@ Categorias aceitas: food, others, services, transport, accommodation.
 
 ## ⚙️ Como Executar o ProjetoClone o repositório:
 
-Bashgit clone <url-do-seu-repositorio>
-
-cd <nome-do-diretorio>
+Bash
+git clone <https://github.com/JuanCMafra/API-Refund-2.0.git>
 
 Instale as dependências:
 
-Bashnpm install
+Bash
+npm install
 
 Configure as variáveis de ambiente (.env):
 
@@ -108,4 +110,5 @@ Execute as migrações do banco de dados:Bashnpx prisma migrate dev
 
 Inicie o servidor de desenvolvimento:
 
-Bashnpm run dev
+Bash
+npm run dev
